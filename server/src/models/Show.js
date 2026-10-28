@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({movie:{type:mongoose.Schema.Types.ObjectId,ref:'Movie',required:true},theatre:{type:String,required:true},city:{type:String,default:'Indore'},screen:{type:String,default:'Audi 1'},startsAt:{type:Date,required:true},price:{type:Number,required:true},seatLabels:{type:[String],default:()=>Array.from({length:8},(_,r)=>Array.from({length:10},(_,i)=>String.fromCharCode(65+r)+(i+1))).flat()}},{timestamps:true});
+export default mongoose.model('Show',schema);
